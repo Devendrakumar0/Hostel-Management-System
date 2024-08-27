@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Manage Boys Blocks</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="../static/css/tables.css" rel="stylesheet" />
+<style>
+  th{
+    color: orange !important;
+  }
+  .sort{
+    font-size:15px;
+    height: 30px;
+    width:20px;
+    color:white;
+    background: transparent;
+    margin-left:20px;
+  
+  }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('students')}}">Students</a>
+                  </li>
+                <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('blocks')}}">Blocks</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('foodmenu')}}">Food Menu</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('allocation')}}">Allocation</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewfeedback')}}">Feedback</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewcomplaints')}}">Complaints</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewoutpass')}}">Outpass</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="/"> Logout</a>
+                  </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <center>
+      <h2 class="section-title bg-white text-center text-primary px-3" style="position:relative;top:90px;">
+        View Payments Status
+      </h2>
+      
+    </center>
+        <center>
+                        <div class="mb-3">
+                            <div class="col-sm-4">
+                                <input type="text" id="search_input" onkeyup="myFunction()" style="background-color:cyan;text-align:center;width:300px;border-radius:10px; position:relative;top:100px;"
+                                name="Rollno" style="text-align:center;" class="form-control-plaintext"
+                                    placeholder="Enter Rollno to Search">
+                            </div>
+                        </div>
+                      </center> 
+                      
+                        <div style="margin:20px; overflow-x:none;position:relative;top:110px;">
+                          <div class="dropdown" style="margin-bottom:20px;">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="hostelDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Select Hostel Type
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="hostelDropdown">
+                                <li><a class="dropdown-item" onclick="filterStudents('All')">All</a></li>
+                                <li><a class="dropdown-item" onclick="filterStudents('BOYS HOSTEL')">Boys Hostel</a></li>
+                                <li><a class="dropdown-item" onclick="filterStudents('GIRLS HOSTEL')">Girls Hostel</a></li>
+                            </ul>
+                        </div>
+          <table class="table table-dark table-striped" id="myTable" >
+            <thead>
+                <tr style="color:rgb(240, 240, 240)">
+                  <!--<th>ID</th>-->
+                  <th>Roll Number<button class="sort" onclick="sortTable()"> &#8595;</button></th>
+                  <th>Student Name</th>
+                  <th>Email</th>
+                  <th>Hostel Fee</th>
+                  <th>Current Bill</th>
+                  <th>Total Amount</th>
+                  <th>Last Date</th>
+                  <th>Hostel Type</th>
+                  <th>Status</th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data.iterrows() %}
+                <tr style="color:rgb(243, 236, 236)">
+                    <!--<td>{{ i[1].id }}</td>-->
+                    <td style="
+                    width: 161px;
+                ">{{ i[1]. Rollno  }}</td>
+                    <td style="
+                    width: 153px;
+                ">{{ i[1].studentname  }}</td>
+                    <td>{{ i[1].studentemail }}</td>
+                    <td style="
+                    width: 133px;
+                ">{{ i[1]. hostelfee }}</td>
+                <td style="
+                    width: 133px;
+                ">{{ i[1]. currentbill }}</td>
+                <td style="
+                    width: 133px;
+                ">{{ i[1]. total_amount }}</td>
+                <td style="
+                    width: 133px;
+                ">{{ i[1]. Date }}</td>
+                <td style="
+                    width: 133px;
+                ">{{ i[1]. hostel_type }}</td>
+                <td style="
+                    width: 133px;
+                ">{{ i[1]. status }}</td>
+                    
+    
+                </tr>
+                
+                {% endfor %}
+                
+            </tbody>
+        </table>
+          </div>
+        
+
+      
+          <script>
+            function myFunction() {
+            let search_input = document.getElementById("search_input");
+            let search_value = search_input.value.toLowerCase();
+            let myTable = document.getElementById("myTable");
+            let tr = myTable.getElementsByTagName("tr");
+            for (i = 1; i < tr.length; i++) {
+               let td = tr[i].getElementsByTagName("td")[0];
+               if (td) {
+          
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toLowerCase().indexOf(search_value) > -1) {
+                     tr[i].style.display = "";
+                  } else {
+                     tr[i].style.display = "none";
+                  }
+               }
+            }
+          }
+          function filterStudents(hostel_type) {
+            var rows = document.querySelectorAll("#myTable tbody tr");
+            rows.forEach(function(row) {
+                var hostelCell = row.querySelector("td:nth-child(8)"); // Assuming hostel type is in the 9th column
+                if (hostel_type === "All" || hostelCell.textContent === hostel_type) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+            function sortTable() {
+              var table, rows, switching, i, x, y, shouldSwitch;
+              table = document.getElementById("myTable");
+              switching = true;
+              while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                  shouldSwitch = false;
+                  x = rows[i].getElementsByTagName("td")[0];
+                  y = rows[i + 1].getElementsByTagName("td")[0];
+                  if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                  }
+                }
+                if (shouldSwitch) {
+                  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                  switching = true;
+                }
+              }
+            }
+            
+          </script>
+    
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+
+</html>

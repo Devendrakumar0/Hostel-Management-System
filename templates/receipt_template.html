@@ -1,0 +1,156 @@
+<!-- receipt_template.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- ... (your existing head content) ... -->
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Receipt</title>
+
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- font awesome style -->
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="/static/css/responsive.css" rel="stylesheet" />
+
+    <style>
+        
+        .contact_section {
+            background-color: #FF4500;
+            color: #FFFFFF; /* Text color for better readability on a colored background */
+          }
+      
+          .contact_section h2 {
+            color: #FFFFFF; /* Text color for better readability on a colored background */
+          }
+      
+          .form_container input,
+          .form_container button {
+            background-color: #FFFFFF; /* Background color for form inputs and button */
+            color: #FF4500; /* Text color for form inputs and button */
+          }
+
+        /* Additional styles for the receipt */
+        .receipt-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .receipt-header {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* ... (any additional styles you may want for the receipt) ... */
+    </style>
+</head>
+
+<body>
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section" style="color: #FF4C33;">
+            <div class="header_bottom">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg custom_nav-container ">
+                      
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class=""> </span>
+                        </button>
+                        <div style="overflow-x:auto;">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav  ">
+                
+                                <li class="nav-item active" style="color: #FF4500;">
+                                  <a class="nav-link" style="margin-left: 5px;" href="{{url_for('profile')}}">Profile</a>
+                                </li>
+                                <li class="nav-item active">
+                                  <a class="nav-link" style="margin-left: 5px;" href="{{url_for('allfoodviewfood')}}">Foodmenu</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" style="margin-left: 5px;height: 58px;" href="{{url_for('pay')}}">Payment</a>
+                                  </li>
+                                  <!--<li class="nav-item active">
+                                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewpayment')}}"> View Payment</a>
+                                  </li>-->
+                                  <li class="nav-item active">
+                                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('outpass')}}">Outpass</a>
+                                  </li>
+                                  <li class="nav-item active">
+                                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewalocationstudent')}}">room</a>
+                                  </li>
+                                  <li class="nav-item active">
+                                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('feedback')}}">Feed back</a>
+                                  </li>
+                                  <li class="nav-item active">
+                                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('raisecomplaint')}}">Complaint</a>
+                                  </li>
+                                  <li class="nav-item active">
+                                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('otherdeatils')}}">others</a>
+                                  </li>
+                                  <li class="nav-item active">
+                                    <a class="nav-link" style="margin-left: 5px;height: 58px;" href="/"> Logout</a>
+                                  </li>
+                              </ul>
+                        </div>
+                      </div>
+                    </nav>
+                </div>
+            
+          </div>
+        </header><br><br><br>
+
+    <div class="receipt-container">
+        <div class="receipt-header">
+            <h2>Receipt Details</h2>
+        </div>
+        {% for row in data %}
+        <!-- Add fields here to display specific receipt information -->
+        <p>ID: {{ row[0]}}</p>
+        <p>Roll Number: {{ row[1] }}</p>
+        <p>Student Name: {{ row[2] }}</p>
+        <p>Amount: {{ row[4] }}</p>
+        <p>Date: {{ row[9] }}</p>
+        {% endfor %}
+        <!-- ... (any additional fields you want to include) ... -->
+    </div>
+
+    <!-- JavaScript for printing the receipt immediately after loading -->
+    <script>
+        window.onload = function () {
+            window.print();
+        }
+    </script>
+
+</body>
+
+</html>

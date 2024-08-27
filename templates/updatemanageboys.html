@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../static/css/addstudents.css">
+<title>Room Allocate</title>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('students')}}">Students</a>
+                      </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('blocks')}}">Blocks</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('foodmenu')}}">Food Menu</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('allocation')}}">Allocation</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewfeedback')}}">Feedbacks</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewcomplaints')}}">Complaints</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewoutpass')}}">Outpass</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="/"> Logout</a>
+                      </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+<div class="Container" style="top:30px;">
+    <form action="{{ url_for('updateback') }}"  class="main_form" method="post" enctype="multipart/form-data">
+    <div class="top_section">
+<h2>Update Allocation</h2>
+</div>
+<div class="content">
+  <input type="text" class="form-control" placeholder="Enter" name="id" value="{{id}}"  hidden/> 
+ 
+    <div class="input-box">
+        <label for="name"></label>
+            <input type="text" class="form-control"  placeholder="Enter Rollno" value="{{data[0][1]}}" name="Rollno" aria-label=" Name" readonly/>
+    </div>
+    <div class="input-box">
+        <label for="name"></label>
+            <input type="text" class="form-control" placeholder="Enter name" value="{{data[0][2]}}" name="studentname" aria-label="Email" readonly/>
+    </div>
+    <div class="input-box">
+        <label for="name"></label>
+            <input type="text" class="form-control" placeholder="Enter email" value="{{data[0][3]}}"  name="studentemail"   aria-label="Roll Number" readonly/>
+    </div>
+    <div class="input-box">
+        <label for="name"></label>
+            <input type="text" class="form-control" placeholder="Enter Year"  value="{{data[0][4]}}" name="Year" aria-label="branch" readonly/>
+    </div>
+    <div class="input-box">
+        <label for="name"></label>
+        <input type="text" class="form-control" placeholder="Enter Branch" value="{{data[0][5]}}" name="branch"  aria-label="Address" readonly/>
+    </div>
+    <div class="input-box">
+        <label for="name"></label>
+        <input type="text" class="form-control" placeholder="Enter Branch" value="{{data[0][10]}}" name="hostel_type"  aria-label="Address" readonly/>
+    </div>
+            <div class="input-box">
+                <label for="name"></label>
+                <input type="text" placeholder="Enter Room Number" name="roomnumber" required>
+                </div>
+
+    <div class="selection">
+                    <label for="name"></label>
+                    <select name="blockname" id="blockname" required>
+                      <option value="" selected disabled>Select Block</option>
+                    <option value="Block A">Block A</option>
+                    <option value="Block B">Block B</option>
+                    <option value="Block C">Block C</option>
+                    <option value="Block D">Block D</option>
+                    <option value="Block E">Block E</option>
+                    <option value="Block F">Block F</option>
+                    </select>
+                    </div>
+
+ <div class="input-box">
+                <label for="name"></label>
+                <input type="text" placeholder="Enter Warden Name" name="wordenname" required>
+                </div>
+                <div class="selection">
+                    <label for="name"></label>
+                    <select name="room_type" id="room_type">
+                    <option selected>Room Type</option>
+                    <option value="AC-ROOM">AC-ROOM</option>
+                    <option value="Non-AC ROOM">Non-AC ROOM</option>
+                    </select>
+                    </div>
+
+
+<div class="btn_box">
+<button type="submit">Update</button>
+</div>                                       
+</div>
+</form>
+</div>
+</body>
+</html>

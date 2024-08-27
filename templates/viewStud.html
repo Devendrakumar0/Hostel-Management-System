@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hostel</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="../static/css/tables.css" rel="stylesheet" />
+
+    </head>
+    <body>
+      <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('students')}}">Students</a>
+                      </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('blocks')}}">Blocks</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('foodmenu')}}">Food Menu</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('allocation')}}">Allocation</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewfeedback')}}">Feedback</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewcomplaints')}}">Complaints</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewoutpass')}}">Outpass</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" style="margin-left: 5px;" href="/"> Logout</a>
+                      </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <div styles="overflow:overflow">    
+        <center>
+            <h2 class="section-title bg-white text-center text-primary px-3" style="position:relative;top:90px;">
+              Student Details
+            </h2>
+          </center>
+          <div class="tab" style="margin:20px; overflow-x:hidden;position:relative;top:90px;">
+            <table class="table table-dark table-striped">
+              <thead>
+                <tr>
+                    
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Year</th>
+                    <th>Branch</th>
+                    <th>Contact Number</th>
+                    <th>Parent Contact</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Hostel Type</th>
+                    <!--<th>Block Name</th>-->
+                    <th>Room Type</th>
+                    <!--<th>Profile</th>-->
+                </tr>
+            </thead>
+            <tbody>
+              {% for i in data.iterrows() %}
+              <tr style="color:rgb(234, 225, 225)">
+                <td>{{ i[1].rollno }}</td>
+                <td>{{ i[1].name  }}</td>
+                <td>{{ i[1].year }}</td>
+                <td>{{ i[1].branch  }}</td>
+                <td>{{ i[1].contact}}</td>
+                <td>{{ i[1].pcontact}}</td>
+                <td>{{ i[1].email }}</td>
+                <td>{{ i[1].address }}</td>
+                <td>{{ i[1].hostel_type }}</td>
+                <td>{{ i[1].room_type }}</td>
+               
+            </tr>
+            {% endfor %}
+            </tbody>
+           
+        </table>
+          </div>
+        </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

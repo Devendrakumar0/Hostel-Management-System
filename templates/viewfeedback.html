@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>viewfeedback</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="../static/css/tables.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('students')}}">Students</a>
+                  </li>
+                <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('blocks')}}">Blocks</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('foodmenu')}}">Food Menu</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('allocation')}}">Allocation</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewfeedback')}}">Feedback</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewcomplaints')}}">Complaints</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewoutpass')}}">Outpass</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" style="margin-left: 5px;" href="/"> Logout</a>
+                  </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <div styles="overflow:overflow">    
+    <center>
+      <h2 class="section-title bg-white text-center text-primary px-3" style="position:relative;top:90px;">
+          Feedback
+      </h2>
+    </center> 
+        
+          <div class="tab" style="margin:20px; overflow-x:visible;position:relative;top:90px;">
+          <table class="table table-dark table-striped" id="dataTable">
+            <thead>
+                <tr style="color:rgb(235, 231, 231)">
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Feedback</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for i in data.iterrows() %}
+              <tr style="color:rgb(248, 244, 244)">
+                  <td>{{ i[1].id }}</td>
+                  <td>{{ i[1]. feedback  }}</td>
+                  <td>{{ i[1].reason  }}</td>
+                  <td>{{ i[1].Date }}</td>
+                  <td>{{ i[1].Time }}</td>
+                 
+              </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+          </div>
+        </div>
+        
+        
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            // Check if the data has been previously deleted within the last minute
+            var lastDeleted = localStorage.getItem('lastDeleted');
+            var currentTime = new Date().getTime();
+            if (!lastDeleted || currentTime - lastDeleted > 14 * 24 * 60 * 60 * 1000) {
+                // If the data hasn't been deleted within the last minute, delete it
+                localStorage.setItem('lastDeleted', currentTime);
+                deleteTableData();
+            }
+    
+            function deleteTableData() {
+                var table = document.getElementById("dataTable");
+                while (table.rows.length > 1) {
+                    table.deleteRow(1);
+                }
+            }
+    
+            function setupTimer() {
+                setInterval(deleteTableData, 14 * 24 * 60 * 60 * 1000); // 14 days in milliseconds
+            }
+            setupTimer();
+        });
+      </script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

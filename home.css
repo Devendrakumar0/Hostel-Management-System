@@ -1,0 +1,38 @@
+
+.title {
+      color:orangered;
+    font-family: Poppins;
+    font-weight: bold;
+   }
+
+.subtitle {
+    font-family: Poppins;
+    color:rgb(42, 33, 95);
+    font-weight: bold;
+}
+
+.description {
+    font-family: Poppins;
+    color: darkslategrey;
+}
+
+.events {
+       height: 200px !important;
+       width: 240px !important;
+       transition: transform 0.3s ease-in-out;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.imgItem {
+    height: 200px;
+    width: 200px;
+}
+
+.logind {
+    background-color: rgb(244, 144, 107);
+}
+.events:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}

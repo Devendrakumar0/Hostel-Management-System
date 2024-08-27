@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar</title>
+    <!-- Including FullCalendar CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.11/index.global.js" integrity="sha512-f9WyGYcRzTKXCWy0pxm+qRi/yK2s4MpPEvAZMMYmHUKBERiDJ5uKVjn2Q142bpfkQ/+dE3CH5P9J3Z87kxdnNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+      .fullcalendar-container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 10px; /* Adjust as needed */
+    }
+    @media only screen and (max-width: 768px) {
+      .fullcalendar-container {
+          padding: 0; /* Remove padding on smaller screens */
+      }
+  }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Event Calendar</h1>
+    </header>
+
+    <!-- Calendar Container -->
+    <div class="fullcalendar-container" id=
+    "calendar"></div>
+
+    <!-- Include FullCalendar JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.11/index.global.js" integrity="sha512-f9WyGYcRzTKXCWy0pxm+qRi/yK2s4MpPEvAZMMYmHUKBERiDJ5uKVjn2Q142bpfkQ/+dE3CH5P9J3Z87kxdnNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+        
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                aspectRatio: 1.5,
+                initialView: 'dayGridMonth',
+                events: '/get_events', // Fetch events from Flask backend
+                editable: false,
+                selectable: false
+            });
+        
+            calendar.render();
+        });
+    </script>
+</body>
+</html>

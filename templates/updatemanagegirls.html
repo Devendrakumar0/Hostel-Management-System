@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Update</title>
+
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- font awesome style -->
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="/static/css/responsive.css" rel="stylesheet" />
+
+
+    <style>
+        /* Red-Orange Color */
+        .contact_section {
+          background-color: #FF4500;
+          color: #FFFFFF; /* Text color for better readability on a colored background */
+        }
+    
+        .contact_section h2 {
+          color: #FFFFFF; /* Text color for better readability on a colored background */
+        }
+    
+        .form_container input,
+        .form_container button {
+          background-color: #FFFFFF; /* Background color for form inputs and button */
+          color: #FF4500; /* Text color for form inputs and button */
+        }
+        *,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "SF Pro Text";
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  /* align-items: center; */
+  /* background: hsl(0, 0%, 8%); */
+}
+
+ul {
+  display: flex;
+  gap: 0.2rem;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 0.5rem;
+  position: relative;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: orangered !important;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: all 0.6s ease;
+}
+
+.nav-link::before {
+  bottom: 0;
+  left: 0;
+}
+
+.nav-link:hover::before {
+  transform: scaleX(1);
+}
+
+
+.logo {
+  transition: 0.35s ease;
+}
+.logo:hover {
+  opacity: 0.5;
+}
+.header_bottom{
+  box-shadow: 5px 5px 5px 5px gray;
+}
+      </style>
+</head>
+
+<body>
+
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section" style="color: #FF4C33;">
+            <div class="header_bottom">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg custom_nav-container ">
+                        
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class=""> </span>
+                        </button>
+                        <div style="overflow-x:auto;">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav  ">
+                
+                            <li class="nav-item active" style="color: #FF4500;">
+                              <a class="nav-link" style="
+                              width: 112px;
+                          " href="{{url_for('students')}}">Students</a>
+                            </li>
+                            <!--<li class="nav-item active">
+                              <a class="nav-link" style="margin-left: 5px;height: 58px;" href="{{url_for('viewaddedstudents')}}"> View Student</a>
+                            </li>-->
+                            <li class="nav-item active">
+                                <a class="nav-link" style="margin-left: 5px;" href="{{url_for('blocks')}}">blocks</a>
+                              </li>
+                              <!--<li class="nav-item active">
+                                <a class="nav-link" style="margin-left: 5px;height: 58px;" href="{{url_for('viewblocks')}}"> View blocks</a>
+                              </li>-->
+                              <li class="nav-item active">
+                                <a class="nav-link" style="margin-left: 5px;" href="{{url_for('foodmenu')}}">Food Menu</a>
+                              </li>
+                              <!--<li class="nav-item active">
+                                <a class="nav-link" style="margin-left: 5px;height: 58px;" href="{{url_for('viewfood')}}"> View FoodMenu</a>
+                              </li>-->
+                              <li class="nav-item active">
+                                <a class="nav-link" style="margin-left: 5px;" href="{{url_for('allocation')}}">Allocation</a>
+                              </li>
+                              <!--<li class="nav-item active">
+                                <a class="nav-link" style="margin-left: 5px;height: 58px;" href="{{url_for('manageallocation')}}"> Manage Allocate</a>
+                              </li>-->
+                              <li class="nav-item active">
+                                <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewfeedback')}}">feedbacks</a>
+                              </li>
+                              <li class="nav-item active">
+                                <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewcomplaints')}}">complaints</a>
+                              </li>
+                              <li class="nav-item active">
+                                <a class="nav-link" style="margin-left: 5px;" href="{{url_for('viewoutpass')}}">Outpass Rquests</a>
+                              </li>
+                              <li class="nav-item active">
+                                <a class="nav-link" style="margin-left: 5px;" href="/"> Logout</a>
+                              </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <!-- end header section -->
+        <!-- slider section -->
+        <section class="slider_section">
+            <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="container">
+                    <div class="col-md-10 mx-auto">
+                      <div class="detail-box">
+                        <div class="card">
+                          <div class="card-body">
+                            <!-- contact section -->
+                            <section class="contact_section layout_padding">
+                              <div class="container-fluid">
+                                <div class="col-lg-4 col-md-5 offset-md-1">
+                                  <div class="heading_container">
+                                    <center><h2 style="
+                                        left: 156px;
+                                        width: 346px;
+                                    ">
+                                        Update Manage Alocation For Girls
+                                    </h2></center>
+                                  </div>
+                                </div>
+                                <div class="row" style="
+                                    
+                                    width: 1813px;
+                                    margin-left: 0px;
+                                
+                                ">
+                                  <div class="col-lg-4 col-md-5 offset-md-1">
+                                    <div class="form_container">
+                                      <form action="{{ url_for('updateback') }}"  class="main_form" method="post" enctype="multipart/form-data">
+                                        <div class="col">
+                                          <input type="text" class="form-control" placeholder="Enter" name="id" value="{{id}}"  hidden/> 
+                                        </div>
+                                          <div class="row">
+                                            <div class="col">
+                                              <input type="text" class="form-control"  placeholder="Enter Rollno" value="{{data[0][1]}}" name="Rollno" aria-label=" Name" readonly/>
+                                            </div>
+                                            <div class="col">
+                                              <input type="text" class="form-control" placeholder="Enter name" value="{{data[0][2]}}" name="studentname" aria-label="Email" readonly/>
+                                            </div>
+                                          </div>
+
+                                          <div class="row">
+                                            <div class="col">
+                                              <input type="text" class="form-control" placeholder="Enter email" value="{{data[0][3]}}"  name="stuemail"   aria-label="Roll Number" readonly/>
+                                            </div>
+                                            <div class="col">
+                                              <input type="text" class="form-control" placeholder="Enter branch"  value="{{data[0][4]}}" name="Year" aria-label="branch" readonly/>
+                                              
+                                            </div>
+                                          </div>
+
+                                          <div class="row">
+                                            <div class="col">
+                                              <input type="text" class="form-control" placeholder="Enter Address" value="{{data[0][5]}}" name="branch"  aria-label="Address" readonly/>
+                                            </div>
+                                            <div class="col">
+                                              <select class="form-select form-select-lg mb-3" class="form-control"   name="hostel_type" style="
+                                              height: 50px;
+                                              width: 264px;
+                                          " aria-label=".form-select-lg example">
+                                               {% for data in data %}
+                                               <option  value="{{data[10]}}" >{{data[10]}}</option>
+                                               {% endfor %}
+                                               <!--<option  value="{{data[10]}}" >Girls Hostel</option></readonly>-->
+                                              </select>
+                                            </div>
+                                          </div> 
+
+                                            <div class="row">
+                                              <div class="col">
+                                                <select class="form-select form-select-lg mb-3" class="form-control" name="roomnumber" style="
+                                                height: 50px;
+                                                width: 264px;
+                                            " aria-label=".form-select-lg example">
+                                                 {% for data in data1 %}
+                                                 <option  value="{{data[2]}}" >{{data[2]}}</option>
+                                                 {% endfor %}
+                                                </select>
+                                              </div>
+                                              <div class="col">
+                                                <select class="form-select form-select-lg mb-3" class="form-control"   name="blockname" style="
+                                                height: 50px;
+                                                width: 264px;
+                                            " aria-label=".form-select-lg example">
+                                                  {% for data in data1 %}
+                                                  <option  value="{{data[3]}}" >{{data[3]}}</option>
+                                                  {% endfor %}
+                                                </select>
+                                              </div>
+                                            </div>
+
+                                            <div class="row">
+                                              <div class="col">
+                                                <select class="form-select form-select-lg mb-3" class="form-control" name="wordenname" style="
+                                                height: 50px;
+                                                width: 264px;
+                                            " aria-label=".form-select-lg example">
+                                                 {% for data in data1 %}
+                                                 <option  value="{{data[4]}}" >{{data[4]}}</option>
+                                                 {% endfor %}
+                                                </select>
+                                              </div>
+                                      
+                                            </div>
+
+                                           
+                                        
+                                      
+                                        
+                                        <div class="btn_box">
+                                          <button style="
+                                          margin-left: 170px;
+                                          width: 186px;
+                                      ">
+                                            Update
+                                          </button>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </section>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        <!-- end slider section -->
+    </div>
+
+
+
+    <!-- jQery -->
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+    <!-- bootstrap js -->
+    <script src="/static/js/bootstrap.js"></script>
+    <!-- owl slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <!--  OwlCarousel 2 - Filter -->
+    <script src="https://huynhhuynh.github.io/owlcarousel2-filter/dist/owlcarousel2-filter.min.js"></script>
+    <!-- custom js -->
+    <script src="/static/js/custom.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+    </script>
+    <!-- End Google Map -->
+
+</body>
+
+</html>
