@@ -1,0 +1,10 @@
+.slider_section {
+  position: relative;
+  margin-top: 0;
+}
+
+.nav {
+  position: fixed;
+  width: 200px;
+}
+  
